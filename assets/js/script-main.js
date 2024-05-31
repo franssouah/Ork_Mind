@@ -14,9 +14,12 @@ $(document).ready(function() {  /* chargement du DOM */
     **************************************************************/
     $BDDevenements=[
         "aucun",
+        "rien",
+        "nada",
         "En avant ! <br><br> <strong>Mouvement +1</strong>",
         "GO, GO, GO ! <br><br> <strong>Mouvement +2</strong>",
-        "CONCENTRATION <br><br> <strong>Attaque +1</strong> (Tir et/ou Assaut)"];
+        "CONCENTRATION <br><br> <strong>Attaque +1</strong> (Tir et/ou Assaut)",
+        "WAAAAAAGh !! <br><br> L'unité <strong>joue 2 actions</strong> de la liste."];
 
     /* BDD actions
     **************************************************************/

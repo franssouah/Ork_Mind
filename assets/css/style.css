@@ -76,6 +76,9 @@ a{
 .margeL1{
     margin-left: 1rem;
 }
+.margeT1{
+    margin-top: 1rem;
+}
 
 .policeOrk{
     font-family: var(--police-ork);
@@ -133,7 +136,7 @@ h4{
 
 .BasdePage{
     position: absolute;
-    top: 85vh;
+    top: 90vh;
 }
 
 /* texte */
@@ -238,7 +241,7 @@ button{
     margin: .2rem;
 }
 .carteImage{
-    width: 28vw;
+    width: 25vw;
     border-radius: 1rem;
 }
 .carteNumero{
@@ -317,7 +320,7 @@ button{
 .ZoneAffichageActions{
     background-color: var(--jaune);
     border-radius: 1rem;
-    width: 80vw;
+    width: 90vw;
     margin-left: auto;
     margin-right: auto;
     margin-top: .2rem;
