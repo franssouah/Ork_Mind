@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>OrkMind_v1.0.1</title>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<link rel="shortcut icon" type="image/png" href="assets/images/interface/favicon.png"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Jaro:opsz@6..72&family=Permanent+Marker&family=Poiret+One&family=Sarpanch:wght@400;500;600;700;800;900&family=Share+Tech&display=swap" rel="stylesheet">
+		<script src="assets/js/jquery-3.7.1.js"></script>
+		<script src="assets/js/script-main.js"></script>
+	</head>	
+	<body> 
+		<!-- Page principale -------------------------------------------------------------------------->
+		<!-- bandeau sup -->
+		<section class="ligne">
+			<div class="AffichageTour ligne centre">
+				<p class="police3">Tour </p>
+				<p id="AffichageNumeroTour"></p>
+				<p class="police3">/</p>
+				<p id="AffichageNbTours"></p>
+				<img id="jetonActivationM" src="assets/images/interface/jeton_mar.png" class="icone jetonActivation">
+				<img id="jetonActivationO" src="assets/images/interface/jeton_ork.png" class="icone jetonActivation">
+			</div>
+			<div class="BoutonMenu">
+				<a href="pages/config.html">
+					<img class="BoutonMenuImage" src="assets/images/interface/config.png">
+				</a>
+			</div>
+		</section>
+
+		<!-- boutons ork mind & fin tour -->
+		<section class="ligne centre marge1">
+			<button id="OrkMind" class="BoutonOrkMind BoutonVert policeOrk">Ork Mind !</button>
+			<button class="BoutonFinTour BoutonRouge police3">Fin du tour</button>
+		</section>
+
+		<!-- affichage des unités -->
+		<section class="AffichageUnites ligne centre"></section>
+
+		<!-- Boutons activations & renforts -->
+		<section class="BasdePage ligneNowrap centre">
+			<button class="BoutonActivations BoutonRouge policeOrk ligne centre">
+				<p>Activations :</p>
+				<p class="miniBouton NbActivMoins policeOrk">-</p>
+				<p class="NbActivations policeOrk"></p>
+				<p class="miniBouton NbActivPlus policeOrk">+</p>
+			</button>
+
+			<button class="BoutonRenforts BoutonVert policeOrk AlignDroite">Renforts !</button>
+		</section>
+
+		<!-- Popups -------------------------------------------------------------------------->
+
+		<!-- Popup Activation : 
+			affiché au clic sur bouton OrkMind; donne les instructions d'activation -->
+			<section class="PopupActivation popup centre">
+				<div class="ligne centre policeOrk">
+					<h3>Activation de l'unité :</h3>
+				</div>
+				<div class="ZoneAffichageActivation ligne spaceAround"></div>
+
+				<div class="ZoneAffichageEvenement colonne centre">
+					<h4 class="police3">Évènement :</h4>
+					<p class="EvenementAffiche"></p>
+				</div>
+
+				<div class="ZoneAffichageActions colonne spaceAround">
+					<h4 class="police3">Actions :</h4>
+					<ul>
+						<li class="italique texteCentre">Effectuez la première action possible ;</li>
+						<li class="italique texteCentre">Visez la cible valide la plus proche ;</li>
+						<li class="italique texteCentre">Utilisez la capacité Tir en Mouvement !</li>
+					</ul>
+					<div class="ligne centre">
+						<p class="policeOrk policeNoireTaille2">1. </p>
+						<p class="ActionAffiche1"></p>
+					</div>
+					<div class="ligne centre">
+						<p class="policeOrk policeNoireTaille2">2. </p>
+						<p class="ActionAffiche2"></p>
+					</div>
+					<div class="ligne centre">
+						<p class="policeOrk policeNoireTaille2">3. </p>
+						<p class="ActionAffiche3"></p>
+					</div>
+					<div class="ligne centre">
+						<p class="policeOrk policeNoireTaille2">4. </p>
+						<p class="ActionAffiche4"></p>
+					</div>
+					<div class="ligne centre">
+						<p class="policeOrk policeNoireTaille2">5. </p>
+						<p class="ActionAffiche5"></p>
+					</div>
+					<p class="italique">Si aucune de ces actions n'est possible, les Orks passent le tour à se battre entre eux.</p>
+					
+				</div>
+
+				<div class="ligne centre policeOrk">
+					<button class="BoutonFermerActivation BoutonRouge policeOrk">Terminé</button>
+				</div>
+				
+			</section>
+
+
+
+		<!-- Popup Renforts : 
+			affiché au clic sur bouton renforts; contient toutes unités de la BDD -->
+		<section class="PopupRenforts popup">
+			<div>
+				<h3>Gestion des renforts Orks</h3>
+				<p>Cliquez sur une unité pour l'ajouter :</p>
+			</div>
+			<div class="ZoneAffichageRenforts"></div>
+			<button class="BoutonFermerRenforts BoutonRouge policeOrk">Fermer</button>
+		</section>
+
+		<!-- Popup unité : 
+			affiché au clic sur une unité en jeu -->
+		<section class="popup PopupUnite">
+			<div>
+				<div class="ligne centre marge5">
+					<h3 class="policeOrk">Gestion de l'unité :</h3>
+				</div>
+				<div class="ligne spaceAround">
+					<div class="centre">
+						<div class="ZoneAffichageUnite"></div>
+					</div>
+					
+					<button class="BoutonEliminerUnite BoutonNoir ploice3">Eliminer</button>
+				</div>
+				<div class="ligne centre marge5">
+					<button class="BoutonFermerUnite BoutonVert policeOrk">Fermer</button>
+				</div>
+			</div>
+			
+			
+		</section>
+	</body>
+</html>

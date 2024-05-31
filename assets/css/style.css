@@ -1,0 +1,366 @@
+:root {
+    /* définition des couleurs*/
+	--primary-color: #e6fde6;
+    --secondary-color: #174d2f;
+    --tertiary-color: #49587b;
+    --noir: #1B1B1B;
+    --blanc: #fefefe;
+    --gris: #6e6e6e;
+    --jaune: #ffd966;
+    --rouge: #761111;
+    --mauve: #9e78d7;
+    --orange: #f4b183;
+    --rose: #fc9ef3;
+    --bleu: #8faadc;
+
+
+    /* définition des polices */
+    --police-ork: "Permanent Marker"; 
+    --police-2: "Jaro";
+    --police-3: "Black Ops One";
+    --police-4: "Share Tech";
+}
+
+
+
+/* général */
+
+body{
+    background-color: var(--noir);
+    margin: 1rem;
+}
+
+a{
+    text-decoration: none;
+    color: unset;
+}
+
+.ligne{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 95vw;
+}
+.ligneNowrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.colonne{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.centre{
+    justify-content: space-around;
+    align-items: center;
+}
+.spaceAround{
+    justify-content: center;
+    align-items: center;
+}
+
+.AlignDroite{
+    /*justify-self: end;*/
+    margin-left: 1rem;
+}
+
+.marge1{
+    margin: 1rem;
+}
+.marge5{
+    margin: 5rem;
+}
+
+.policeOrk{
+    font-family: var(--police-ork);
+    color: var(--blanc);
+}
+.police2{
+    font-family: var(--police-2);
+}
+.police3{
+    font-family: var(--police-3);
+}
+.police4{
+    font-family: var(--police-4);
+}
+
+.policeNoireTaille2{
+    font-size: 2rem;
+    color: #1B1B1B;
+    margin: 0;
+}
+
+.italique{
+    font-style: italic;
+}
+
+h3{
+    margin-top: 0;
+}
+h4{
+    margin: .5rem 0 0 0;
+}
+
+
+/* Zones */
+.AffichageTour{
+    background-color: var(--gris);
+    width: 70vw;
+    height: 3.5rem;
+    border-radius: 1rem;
+    padding-left: .5rem;
+    font-size: 2rem;
+    font-family: var(--police-3);
+    margin-top: 0;
+    padding-top: 0;
+}
+.AffichageTour > p {
+    margin-top: 1rem;
+}
+.AffichageTour > img {
+    margin-top: -2rem;
+}
+
+
+
+
+.BasdePage{
+    position: absolute;
+    top: 90vh;
+}
+
+/* texte */
+.texteCentre{
+    text-align: center;
+}
+
+/* icones */
+.icone{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1rem;
+}
+
+
+
+
+
+/* Bouton menu */
+.BoutonMenu{
+    width: 2rem;
+    height: 2rem;
+    justify-self: end;
+    margin-left: 1rem;
+}
+
+.BoutonMenuImage{
+    object-fit: contain;
+    max-height: 3.5rem;
+    max-width: 3.5rem;
+}
+
+.BoutonMenuImage:hover{
+    animation-name: rotationBouton;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes rotationBouton {
+	0% {transform: rotateZ(0deg);}
+	50% {transform: rotateZ(180deg);}
+	100% {transform: rotateZ(360deg);}
+}
+
+/* Boutons */
+button{
+    border: 0;
+    border-radius: 1.2rem;
+    height: 4rem;
+    padding: 0 .5rem 0 .5rem;
+}
+.BoutonOrkMind{
+    font-size: 1.8rem;
+}
+
+.BoutonFinTour{
+    font-size: 1.2rem;
+     
+}
+
+.BoutonRouge{
+    
+    background-color: var(--rouge);
+}
+.BoutonVert{
+    background-color: var(--secondary-color); 
+}
+.BoutonNoir{
+    background-color: var(--noir);
+    color: var(--blanc);
+}
+
+.BoutonActivations, .BoutonRenforts{
+    font-size: 1.2rem;
+}
+
+.BoutonActivations > p{
+    margin-top: .2rem;
+}
+
+.NbActivations{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: .2rem;
+    background-color: var(--gris);
+    border-radius: 2rem;
+    font-size: 2rem;
+}
+
+.miniBouton{
+    padding-left: .5rem;
+    padding-right: .5rem;
+    margin-left: .2rem;
+    background-color: var(--gris);
+    border-radius: 2rem;
+    font-size: 1rem;
+}
+
+/* Cartes unités */
+.carte{
+    margin: .2rem;
+}
+.carteImage{
+    width: 28vw;
+    border-radius: 1rem;
+}
+.carteNumero{
+    margin-top: -25vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: var(--jaune);
+    border-radius: 2rem;
+    font-size: 2rem;
+    width: 1rem;
+    text-align: center;
+    color: #1B1B1B;
+}
+.carteTitre{
+    color: var(--blanc);
+    margin: 0;
+    text-transform: uppercase;
+}
+.activee{
+    opacity: 20%;
+}
+
+.ork{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 35vw;
+}
+
+
+/* Popups */
+.popup{
+    visibility: hidden; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+}
+
+.visible{
+    visibility: visible;
+}
+
+.PopupRenforts{
+    background-color: var(--secondary-color);
+}
+
+.PopupUnite{
+    background-color: var(--rouge);
+}
+
+.ZoneAffichageUnite{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.PopupActivation{
+    background-color: var(--secondary-color);
+    padding-top: 1rem;
+}
+.ZoneAffichageEvenement{
+    background-color: var(--jaune);
+    border-radius: 1rem;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding: 0 1rem 0 1rem;
+}
+.ZoneAffichageActions{
+    background-color: var(--jaune);
+    border-radius: 1rem;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding: 0 1rem 0 1rem;
+    color: #1B1B1B;
+}
+
+/* jetons d'activation */
+.jetonActivation {
+    visibility: hidden;
+}
+
+
+/* Page config 
+**********************************************/
+.titreConfig{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 3rem;
+    background-color: var(--secondary-color);
+    border-radius: 1rem;
+}
+
+.ConfigZoneOptions{
+    background-color: var(--rouge);
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+.ConfigZoneUnites{
+    background-color: var(--jaune);
+    padding: .5rem;
+    margin-top: 1rem;
+    border-radius: 1rem;
+}
+
+.BoutonValiderConfig{
+    margin-top: 1rem;
+    width: 40vw;
+}
+
+.BoutonAnnulerConfig{
+    margin-top: 1rem;
+    width: 40vw;
+}

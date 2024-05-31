@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>OrkMind_Config</title>
+		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+		<link rel="shortcut icon" type="image/png" href="../assets/images/interface/favicon.png"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Jaro:opsz@6..72&family=Permanent+Marker&family=Poiret+One&family=Sarpanch:wght@400;500;600;700;800;900&family=Share+Tech&display=swap" rel="stylesheet">
+		<script src="../assets/js/jquery-3.7.1.js"></script>
+		<script src="../assets/js/script-config.js"></script>
+	</head>	
+	<body> 
+        <!-- bandeau sup -->
+		<section class="ligne">
+            <div class="ligne">
+                <h2 class="policeOrk titreConfig">Configurateur Ork</h2>
+            </div>
+		</section>
+
+        <!-- options partie -->
+        <section class="ConfigZoneOptions">
+            <h3 class="texteCentre">Options</h3>
+            <div class="colonne AffichageOptions">
+                <div class="selection">
+                    <label for="NbToursSelect">Nombre de tours :</label>
+                    <select id="NbToursSelect">
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                    </select>
+                </div>
+                <div class="selection">
+                    <label for="NbActivationsSelect">Activations Orks :</label>
+                    <select id="NbActivationsSelect">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                    </select>
+                </div>
+                <!--<div class="selection">
+                    <label for="OptionEvt">Evènements :</label>
+                    <select id="OptionEvt">
+                        <option>Oui</option>
+                    </select>
+                </div>   -->            
+            </div>
+        </section>
+
+
+        <!-- choix unités -->
+        <section class="ConfigZoneUnites">
+            <h3 class="texteCentre">Unités Orks</h3>
+            <div class="ZoneChoixUnites">
+                <!--unité-->
+                <div class="ligne centre">
+                    <div class="carte colonne">  
+                        <img class="carteImage" src="../assets/images/units/ork_bossmob_R.png"> 
+                    </div>
+                    <div class="selection">
+                        <label for="NbBossmobSelect">Boss Mob :</label>
+                        <select id="NbBossmobSelect">
+                            <option>0</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+                </div>
+                <!--unité-->
+                <div class="ligne centre">
+                    <div class="carte colonne">  
+                        <img class="carteImage" src="../assets/images/units/ork_sluggas_R.png"> 
+                    </div>
+                    <div class="selection">
+                        <label for="NbSluggasSelect">Sluggas :</label>
+                        <select id="NbSluggasSelect">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                </div>
+                <!--unité-->
+                <div class="ligne centre">
+                    <div class="carte colonne">  
+                        <img class="carteImage" src="../assets/images/units/ork_shootas_R.png"> 
+                    </div>
+                    <div class="selection">
+                        <label for="NbShootasSelect">Shootas :</label>
+                        <select id="NbShootasSelect">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                </div>
+                <!--unité-->
+                <div class="ligne centre">
+                    <div class="carte colonne">  
+                        <img class="carteImage" src="../assets/images/units/ork_bigshoota_R.png"> 
+                    </div>
+                    <div class="selection">
+                        <label for="NbBigshootaSelect">Big Shoota :</label>
+                        <select id="NbBigshootaSelect">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                </div>
+                <!--unité-->
+                <div class="ligne centre">
+                    <div class="carte colonne">  
+                        <img class="carteImage" src="../assets/images/units/ork_rokkitlauncha_R.png"> 
+                    </div>
+                    <div class="selection">
+                        <label for="NbRokkitLaunchaSelect">Rokkit Launcha :</label>
+                        <select id="NbRokkitLaunchaSelect">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                </div>
+                <!--unité-->
+                <div class="ligne centre">
+                    <div class="carte colonne">  
+                        <img class="carteImage" src="../assets/images/units/ork_killakan_R.png"> 
+                    </div>
+                    <div class="selection">
+                        <label for="NbKillaKanSelect">Killa Kan :</label>
+                        <select id="NbKillaKanSelect">
+                            <option>0</option>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+
+        <!-- bouton valider -->
+        <div class="ligne centre">
+            <button class="BoutonAnnulerConfig BoutonRouge policeOrk"><a href="../index.html">Annuler</a></button>
+            <button class="BoutonValiderConfig BoutonVert policeOrk">Valider</button>
+        </div>
+       
