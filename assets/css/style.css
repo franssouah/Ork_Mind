@@ -73,6 +73,9 @@ a{
 .marge5{
     margin: 5rem;
 }
+.margeL1{
+    margin-left: 1rem;
+}
 
 .policeOrk{
     font-family: var(--police-ork);
@@ -91,7 +94,7 @@ a{
 .policeNoireTaille2{
     font-size: 2rem;
     color: #1B1B1B;
-    margin: 0;
+    margin: -.5rem .5rem -.5rem 0;
 }
 
 .italique{
@@ -130,7 +133,7 @@ h4{
 
 .BasdePage{
     position: absolute;
-    top: 90vh;
+    top: 85vh;
 }
 
 /* texte */
@@ -300,16 +303,15 @@ button{
 
 .PopupActivation{
     background-color: var(--secondary-color);
-    padding-top: 1rem;
 }
 .ZoneAffichageEvenement{
     background-color: var(--jaune);
     border-radius: 1rem;
-    width: 80vw;
+    width: 40vw;
     margin-left: auto;
     margin-right: auto;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
     padding: 0 1rem 0 1rem;
 }
 .ZoneAffichageActions{
@@ -318,8 +320,8 @@ button{
     width: 80vw;
     margin-left: auto;
     margin-right: auto;
-    margin-top: .5rem;
-    margin-bottom: .5rem;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
     padding: 0 1rem 0 1rem;
     color: #1B1B1B;
 }

@@ -14,21 +14,25 @@ $(document).ready(function() {  /* chargement du DOM */
     **************************************************************/
     $BDDevenements=[
         "aucun",
-        "GO, GO, GO ! <br><br> L'unité gagne : Mouvement +2",
-        "CONCENTRATION <br><br> L'unité gagne +1 à l'attaque (Tir et/ou Assaut)"];
+        "En avant ! <br><br> <strong>Mouvement +1</strong>",
+        "GO, GO, GO ! <br><br> <strong>Mouvement +2</strong>",
+        "CONCENTRATION <br><br> <strong>Attaque +1</strong> (Tir et/ou Assaut)"];
 
     /* BDD actions
     **************************************************************/
     $BDDactions=[
-        "Assaut sur l'ennemi",
-        "Tir sur l'ennemi",
-        "Mouvement vers l'ennemi",
+        "Assaut sur ennemi",
+        "Tir sur ennemi",
+        "Assaut sur officier",
+        "Tir sur officier",
+        "Mouvement / Assaut vers ennemi",
         "Assaut sur ennemi blessé",
         "Tir sur ennemi blessé",
-        "Mouvement vers ennemi blessé",
-        "Mouvement vers l'objectif",
-        "Mouvement vers le couvert",
-        "Repli : mouvement vers la zone de départ"];
+        "Mouvement / Assaut vers ennemi blessé",
+        "Mouvement vers objectif",
+        "Mouvement vers couvert",
+        "Repli vers zone de départ", 
+        "Mouvement vers un allié"];
     
     /* Gestion des Tours
     **************************************************************/
