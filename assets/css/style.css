@@ -102,6 +102,9 @@ a{
     color: #1B1B1B;
     margin: -.5rem .5rem -.5rem 0;
 }
+.policeTaille2{
+    font-size: 2rem;
+}
 
 .italique{
     font-style: italic;
@@ -149,8 +152,8 @@ h4{
 
 /* icones */
 .icone{
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 1rem;
 }
 
@@ -239,6 +242,10 @@ button{
     font-size: 1rem;
 }
 
+.BoutonFermerFinTour{
+    width: 25vw;
+}
+
 /* Cartes unités */
 .carte{
     margin: .2rem;
@@ -261,6 +268,12 @@ button{
 .carteTitre{
     color: var(--blanc);
     margin: 0;
+    text-transform: uppercase;
+}
+.carteTitreS{
+    color: var(--blanc);
+    margin: 0;
+    font-size: .7rem;
     text-transform: uppercase;
 }
 .activee{
@@ -332,10 +345,14 @@ button{
     color: #1B1B1B;
 }
 
-/* jetons d'activation */
-/*.jetonActivation {
-    visibility: hidden;
-}*/
+.PopupFinTour{
+    background-color: var(--rouge);
+}
+
+.ZoneAffichageMessageFin{
+    padding: 1rem;
+    text-align: center;
+}
 
 
 /* Page config 

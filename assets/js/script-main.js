@@ -29,11 +29,45 @@ $(document).ready(function() {  /* chargement du DOM */
         "Assaut sur ennemi",
         "Tir sur ennemi",
         "Assaut sur officier",
+        "Assaut sur véhicule",
         "Tir sur officier",
         "Mouvement / Assaut vers ennemi",
         "Assaut sur ennemi blessé",
         "Tir sur ennemi blessé",
         "Mouvement / Assaut vers ennemi blessé",
+        "Mouvement vers objectif",
+        "Mouvement vers couvert",
+        "Repli vers zone de départ", 
+        "Mouvement vers un allié"];
+    
+    $BDDactionsAssaut=[
+        "Assaut sur ennemi",
+        "Assaut sur officier",
+        "Assaut sur véhicule",
+        "Mouvement / Assaut vers ennemi",
+        "Assaut sur ennemi blessé",
+        "Mouvement / Assaut vers ennemi blessé",
+        "Mouvement vers objectif",
+        "Mouvement vers couvert", 
+        "Mouvement vers un allié"];
+
+    $BDDactionsTir=[
+        "Tir sur ennemi",
+        "Tir sur officier",
+        "Tir sur véhicule léger",
+        "Mouvement / Assaut vers ennemi",
+        "Tir sur ennemi blessé",
+        "Mouvement vers objectif",
+        "Mouvement vers couvert",
+        "Repli vers zone de départ", 
+        "Mouvement vers un allié"];
+    
+    $BDDactionsTirLourd=[
+        "Tir sur ennemi",
+        "Tir sur officier",
+        "Tir sur véhicule",
+        "Mouvement / Assaut vers ennemi",
+        "Tir sur ennemi blessé",
         "Mouvement vers objectif",
         "Mouvement vers couvert",
         "Repli vers zone de départ", 
@@ -48,7 +82,7 @@ $(document).ready(function() {  /* chargement du DOM */
         "Mouvement vers couvert",
         "Repli vers zone de départ", 
         "Mouvement vers allié",
-        "Sieste"];
+        "Sieste (rien, quoi!)"];
 
 
     /* Gestion des Tours
@@ -64,17 +98,27 @@ $(document).ready(function() {  /* chargement du DOM */
 
         // Tour suivant
         $(".BoutonFinTour").on("click", function(){
+            // zone affichage messages
+            $ZoneMessageFinTour=$(".ZoneAffichageMessageFin");
+            $ZoneMessageFinTour.html('');
+
+            // Ouverture popup
+            $(".PopupFinTour").addClass('visible');
+
             // vérif activations
             if($numeroActivation<$NbActivations){
-                alert ("Il reste des Orks à activer !");
+                $ZoneMessageFinTour.append('<p class="policeOrk policeTaille2">Pas si vite ! Il reste des Orks à activer !</p>')
             }else{
                 // vérif nb tours
                 if ($numeroTour == $NbTours){
                     alert ("Partie terminée !");
                 }else{
                     // affichage déplacements de fin de tour
-                    alert("Mouvement des unités non activées (numéros PAIRS) : \n\n"+$BDDfin[Math.floor(Math.random()*($BDDfin.length))]);
-                    alert("Mouvement des unités non activées (numéros IMPAIRS) : \n\n"+$BDDfin[Math.floor(Math.random()*($BDDfin.length))]);
+                    $ZoneMessageFinTour.append('<p class="policeOrk">Mouvement des unités non activées (numéros PAIRS) :</p><p class="police3">'+$BDDfin[Math.floor(Math.random()*($BDDfin.length))]+'</p><br><br>');
+                    $ZoneMessageFinTour.append('<p class="policeOrk">Mouvement des unités non activées (numéros IMPAIRS) :</p><p class="police3">'+$BDDfin[Math.floor(Math.random()*($BDDfin.length))]+'</p>');
+
+                    /*alert("Mouvement des unités non activées (numéros PAIRS) : \n\n"+$BDDfin[Math.floor(Math.random()*($BDDfin.length))]);
+                    alert("Mouvement des unités non activées (numéros IMPAIRS) : \n\n"+$BDDfin[Math.floor(Math.random()*($BDDfin.length))]);*/
 
                     // changement n° tour
                     $numeroTour++;
@@ -101,6 +145,12 @@ $(document).ready(function() {  /* chargement du DOM */
                     $(".activee").removeClass('activee');
                 }
             }
+
+            // Fermeture popup
+            $(".BoutonFermerFinTour").on("click", function(){
+                $(".PopupFinTour").removeClass('visible');
+            });
+
         })
 
 
@@ -117,10 +167,15 @@ $(document).ready(function() {  /* chargement du DOM */
         $RokkitLauncha=$sessionConfig.options.RokkitLauncha;
         $KillaKan=$sessionConfig.options.KillaKan;
 
+        // classes de rôles:
+            // assaut
+            // tir
+            // tirlourd : tir VS véhic lourd
+
         // Boss Mob
         for ($i=0; $i<($BossMob); $i++){
             $nom="bossmob";
-            $affichageUnites.append('<div class="unite"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
+            $affichageUnites.append('<div class="unite assaut"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
             $affichageUnites.children().last().addClass("ork");
             $affichageUnites.children().last().attr('id','ork'+$numeroOrk);
             $affichageUnites.children().last().append('<p class="carteNumero policeOrk">'+$numeroOrk+'</p>');
@@ -130,7 +185,7 @@ $(document).ready(function() {  /* chargement du DOM */
         // Sluggas
         for ($i=0; $i<($Sluggas); $i++){
             $nom="sluggas";
-            $affichageUnites.append('<div class="unite"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
+            $affichageUnites.append('<div class="unite assaut"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
             $affichageUnites.children().last().addClass("ork");
             $affichageUnites.children().last().attr('id','ork'+$numeroOrk);
             $affichageUnites.children().last().append('<p class="carteNumero policeOrk">'+$numeroOrk+'</p>');
@@ -140,7 +195,7 @@ $(document).ready(function() {  /* chargement du DOM */
         // Shootas
         for ($i=0; $i<($Shootas); $i++){
             $nom="shootas";
-            $affichageUnites.append('<div class="unite"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
+            $affichageUnites.append('<div class="unite tir"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
             $affichageUnites.children().last().addClass("ork");
             $affichageUnites.children().last().attr('id','ork'+$numeroOrk);
             $affichageUnites.children().last().append('<p class="carteNumero policeOrk">'+$numeroOrk+'</p>');
@@ -150,7 +205,7 @@ $(document).ready(function() {  /* chargement du DOM */
         // Bigshoota
         for ($i=0; $i<($Bigshoota); $i++){
             $nom="bigshoota";
-            $affichageUnites.append('<div class="unite"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
+            $affichageUnites.append('<div class="unite tir"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
             $affichageUnites.children().last().addClass("ork");
             $affichageUnites.children().last().attr('id','ork'+$numeroOrk);
             $affichageUnites.children().last().append('<p class="carteNumero policeOrk">'+$numeroOrk+'</p>');
@@ -160,7 +215,7 @@ $(document).ready(function() {  /* chargement du DOM */
         // RokkitLauncha
         for ($i=0; $i<($RokkitLauncha); $i++){
             $nom="rokkitlauncha";
-            $affichageUnites.append('<div class="unite"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
+            $affichageUnites.append('<div class="unite  tirlourd"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitreS">'+$nom+'</p>   </div></div>');
             $affichageUnites.children().last().addClass("ork");
             $affichageUnites.children().last().attr('id','ork'+$numeroOrk);
             $affichageUnites.children().last().append('<p class="carteNumero policeOrk">'+$numeroOrk+'</p>');
@@ -170,7 +225,7 @@ $(document).ready(function() {  /* chargement du DOM */
         // KillaKan
         for ($i=0; $i<($KillaKan); $i++){
             $nom="killakan";
-            $affichageUnites.append('<div class="unite"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
+            $affichageUnites.append('<div class="unite tirlourd"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
             $affichageUnites.children().last().addClass("ork");
             $affichageUnites.children().last().attr('id','ork'+$numeroOrk);
             $affichageUnites.children().last().append('<p class="carteNumero policeOrk">'+$numeroOrk+'</p>');
@@ -259,8 +314,19 @@ $(document).ready(function() {  /* chargement du DOM */
                 $(".EvenementAffiche").html($BDDevenements[Math.floor(Math.random()*($BDDevenements.length))]);
 
                 // affichage des actions
+                    // type d'unité
+                    if ($UniteActive.hasClass('assaut')){
+                        $actionsDispo=$BDDactionsAssaut;
+                    }
+                    if ($UniteActive.hasClass('tir')){
+                        $actionsDispo=$BDDactionsTir;
+                    }
+                    if ($UniteActive.hasClass('tirlourd')){
+                        $actionsDispo=$BDDactionsTirLourd;
+                    }
+                    
                     //tirage au sort
-                    $actionsDispo=$BDDactions;
+                    //$actionsDispo=$BDDactions;
                     for ($i=0; $i<10; $i++){
                         //tirage d'une action
                         $action=$actionsDispo[Math.floor(Math.random()*($actionsDispo.length))];
