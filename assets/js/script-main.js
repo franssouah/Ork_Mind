@@ -7,8 +7,10 @@ $(document).ready(function() {  /* chargement du DOM */
         // réglage Options
         $NbTours=$sessionConfig.options.NbTours;
         console.log($NbTours);
-
-        $("#jetonActivationM").addClass('visible');
+ 
+        // initiative
+        $initiative="mar";
+        $("#jetonActivation").append('<img id="jetonActivationM" src="assets/images/interface/jeton_mar.png" class="icone jetonActivation">');
 
     /* BDD évènements
     **************************************************************/
@@ -36,7 +38,19 @@ $(document).ready(function() {  /* chargement du DOM */
         "Mouvement vers couvert",
         "Repli vers zone de départ", 
         "Mouvement vers un allié"];
-    
+
+    /* BDD fin tour
+    **************************************************************/
+    $BDDfin=[
+        "Mouvement vers ennemi",
+        "Mouvement vers ennemi blessé",
+        "Mouvement vers objectif",
+        "Mouvement vers couvert",
+        "Repli vers zone de départ", 
+        "Mouvement vers allié",
+        "Sieste"];
+
+
     /* Gestion des Tours
     **************************************************************/
         //numéro du tour en cours
@@ -58,20 +72,29 @@ $(document).ready(function() {  /* chargement du DOM */
                 if ($numeroTour == $NbTours){
                     alert ("Partie terminée !");
                 }else{
+                    // affichage déplacements de fin de tour
+                    alert("Mouvement des unités non activées (numéros PAIRS) : \n\n"+$BDDfin[Math.floor(Math.random()*($BDDfin.length))]);
+                    alert("Mouvement des unités non activées (numéros IMPAIRS) : \n\n"+$BDDfin[Math.floor(Math.random()*($BDDfin.length))]);
+
+                    // changement n° tour
                     $numeroTour++;
                     $AffichageNumeroTour.html($numeroTour);
                     if ($numeroTour == $NbTours){
                         $(".AffichageTour").css("color","red");
                     }
                     //changement d'initiative
-                    if($("#jetonActivationM").hasClass('visible')){
-                        $("#jetonActivationM").removeClass('visible');
-                        $("#jetonActivationO").addClass('visible');
-                    };
-                    if($("#jetonActivationO").hasClass('visible')){
-                        $("#jetonActivationO").removeClass('visible');
-                        $("#jetonActivationM").addClass('visible');
-                    };
+                    $("#jetonActivation").html('');
+                    switch($initiative){
+                        case 'ork':
+                            $("#jetonActivation").append('<img id="jetonActivationM" src="assets/images/interface/jeton_mar.png" class="icone jetonActivation">');
+                            $initiative="mar";
+                            break;
+                        case 'mar':
+                            $("#jetonActivation").append('<img id="jetonActivationO" src="assets/images/interface/jeton_ork.png" class="icone jetonActivation">');
+                            $initiative="ork";
+                            break;
+                    }
+                    
 
                     //réinitialisation des activations
                     $numeroActivation=0;

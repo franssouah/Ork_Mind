@@ -76,6 +76,9 @@ a{
 .margeL1{
     margin-left: 1rem;
 }
+.marge-1{
+    margin-top: -1.2rem;
+}
 .margeT1{
     margin-top: 1rem;
 }
@@ -330,9 +333,9 @@ button{
 }
 
 /* jetons d'activation */
-.jetonActivation {
+/*.jetonActivation {
     visibility: hidden;
-}
+}*/
 
 
 /* Page config 
