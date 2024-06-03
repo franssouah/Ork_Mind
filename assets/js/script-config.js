@@ -38,8 +38,10 @@ $(document).ready(function() {  /* chargement du DOM */
             $config.options.BigShoota = $('#NbBigshootaSelect').val();
             //RokkitLauncha :
             $config.options.RokkitLauncha = $('#NbRokkitLaunchaSelect').val();
-            //Shootas :
+            //KillaKan :
             $config.options.KillaKan = $('#NbKillaKanSelect').val();
+            //DeffDread :
+            $config.options.DeffDread = $('#NbDeffDreadSelect').val();
 
                     
         // Enregistrement des données sous forme de chaîne JSON, dans le localstorage (source : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#utiliser_json.stringify_avec_localstorage)

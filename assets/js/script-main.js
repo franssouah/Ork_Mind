@@ -18,8 +18,11 @@ $(document).ready(function() {  /* chargement du DOM */
         "aucun",
         "rien",
         "nada",
+        "aucun",
+        "En avant ! <br><br> <strong>Mouvement +1</strong>",
         "En avant ! <br><br> <strong>Mouvement +1</strong>",
         "GO, GO, GO ! <br><br> <strong>Mouvement +2</strong>",
+        "CONCENTRATION <br><br> <strong>Attaque +1</strong> (Tir et/ou Assaut)",
         "CONCENTRATION <br><br> <strong>Attaque +1</strong> (Tir et/ou Assaut)",
         "WAAAAAAGh !! <br><br> L'unité <strong>joue 2 actions</strong> de la liste."];
 
@@ -60,7 +63,8 @@ $(document).ready(function() {  /* chargement du DOM */
         "Mouvement vers objectif",
         "Mouvement vers couvert",
         "Repli vers zone de départ", 
-        "Mouvement vers un allié"];
+        "Mouvement vers un allié",
+        "Assaut sur ennemi"];
     
     $BDDactionsTirLourd=[
         "Tir sur ennemi",
@@ -71,7 +75,8 @@ $(document).ready(function() {  /* chargement du DOM */
         "Mouvement vers objectif",
         "Mouvement vers couvert",
         "Repli vers zone de départ", 
-        "Mouvement vers un allié"];
+        "Mouvement vers un allié",
+        "Assaut sur ennemi"];
 
     /* BDD fin tour
     **************************************************************/
@@ -166,6 +171,7 @@ $(document).ready(function() {  /* chargement du DOM */
         $Bigshoota=$sessionConfig.options.BigShoota;
         $RokkitLauncha=$sessionConfig.options.RokkitLauncha;
         $KillaKan=$sessionConfig.options.KillaKan;
+        $DeffDread=$sessionConfig.options.DeffDread;
 
         // classes de rôles:
             // assaut
@@ -232,6 +238,16 @@ $(document).ready(function() {  /* chargement du DOM */
             $numeroOrk++;
         }
 
+        // KillaKan
+        for ($i=0; $i<($DeffDread); $i++){
+            $nom="deffdread";
+            $affichageUnites.append('<div class="unite tirlourd"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="carteTitre">'+$nom+'</p>   </div></div>');
+            $affichageUnites.children().last().addClass("ork");
+            $affichageUnites.children().last().attr('id','ork'+$numeroOrk);
+            $affichageUnites.children().last().append('<p class="carteNumero policeOrk">'+$numeroOrk+'</p>');
+            $numeroOrk++;
+        }
+
    
     /* Gestion des unités éliminées depuis l'écran principal
     *************************************************************/
@@ -250,14 +266,32 @@ $(document).ready(function() {  /* chargement du DOM */
 
         // suppression de l'unité + nettoyage et fermeture popup
         $(".BoutonEliminerUnite").on("click", function(){
-            $("#"+$IDclic).remove();
-            $ZoneAffichageUnite.html('');
-            $PopupUnite.removeClass('visible');
+            // probabilité de sauver l'unité
+            $randomSvg=Math.floor(Math.random()*10);
+            if ($randomSvg == 0){
+                $(".ZoneMessagePopupUnite").append('<p class="policeOrk padding2">RÉSISTANTS : <br><br> Cette unité reste en jeu ; elle reçoit un marquer Suppression. </p>');
+            }
+            // probabilité de perte d'une activation
+            if ($randomSvg == 1){
+                $(".ZoneMessagePopupUnite").append('<p class="policeOrk padding2">Les Orks perdent une activation pour ce tour. </p>');
+                $numeroActivation++
+                setTimeout(() =>{
+                    $("#"+$IDclic).remove();
+                    $ZoneAffichageUnite.html('');
+                    $PopupUnite.removeClass('visible');
+                },3000)
+            }
+            else{
+                $("#"+$IDclic).remove();
+                $ZoneAffichageUnite.html('');
+                $PopupUnite.removeClass('visible');
+            }
         })
 
         // nettoyage et fermeture du popup
         $(".BoutonFermerUnite").on("click", function(){
             $ZoneAffichageUnite.html('');
+            $(".ZoneMessagePopupUnite").html('');
             $PopupUnite.removeClass('visible');
         })
 

@@ -48,7 +48,7 @@
 				<p class="miniBouton NbActivPlus policeOrk">+</p>
 			</button>
 
-			<button class="BoutonRenforts BoutonVert policeOrk AlignDroite">Renforts !</button>
+			<!--<button class="BoutonRenforts BoutonVert policeOrk AlignDroite">Renforts !</button>-->
 		</section>
 
 		<!-- Popups -------------------------------------------------------------------------->
@@ -74,7 +74,8 @@
 					<ul>
 						<li class="italique texteCentre">Effectuez la première action possible ;</li>
 						<li class="italique texteCentre">Visez la cible valide la plus proche ;</li>
-						<li class="italique texteCentre">Utilisez la capacité Tir en Mouvement !</li>
+						<li class="italique texteCentre">Si possible, finir mouvement à couvert ;</li>
+						<li class="italique texteCentre">Si possible, Tir en Mouvement !</li>
 					</ul>
 					<div class="ligne centre">
 						<p class="policeOrk policeNoireTaille2">1</p>
@@ -126,15 +127,16 @@
 				<div class="ligne centre marge5">
 					<h3 class="policeOrk">Gestion de l'unité :</h3>
 				</div>
-				<div class="ligne spaceAround">
+				<div class="ligne spaceAround fondNoirRounded">
 					<div class="centre">
 						<div class="ZoneAffichageUnite"></div>
 					</div>
 					
-					<button class="BoutonEliminerUnite BoutonNoir ploice3">Eliminer</button>
+					<button class="BoutonEliminerUnite BoutonRouge police3 policeTaille1">Eliminer</button>
 				</div>
-				<div class="ligne centre marge5">
-					<button class="BoutonFermerUnite BoutonVert policeOrk">Fermer</button>
+				<div class="ZoneMessagePopupUnite"></div>
+				<div class="ligne centre marge5 ">
+					<button class="BoutonFermerUnite BoutonVert policeOrk policeTaille15">Fermer</button>
 				</div>
 			</div>
 		</section>
@@ -148,11 +150,11 @@
 					</div>
 					<div class="ligne spaceAround">
 						<div class="ligne centre">
-							<div class="ZoneAffichageMessageFin ligne spaceAround"></div>
+							<div class="ZoneAffichageMessageFin ligne spaceAround padding2"></div>
 						</div>
 					</div>
 					<div class="ligne centre marge5">
-						<button class="BoutonFermerFinTour BoutonVert policeOrk">OK</button>
+						<button class="BoutonFermerFinTour BoutonVert policeOrk policeTaille15">OK</button>
 					</div>
 				</div>
 			</section>
