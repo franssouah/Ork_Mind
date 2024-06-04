@@ -61,10 +61,13 @@ a{
     justify-content: center;
     align-items: center;
 }
+.spaceBetween{
+    justify-content: space-between;
+    align-items: center;
+}
 
 .AlignDroite{
-    /*justify-self: end;*/
-    margin-left: 1rem;
+    justify-content: end;
 }
 .AlignGauche{
     justify-content: flex-start;
@@ -85,6 +88,9 @@ a{
 }
 .margeT1{
     margin-top: 1rem;
+}
+.margeB1{
+    margin-bottom: .5rem;
 }
 .padding2{
     padding: 2rem;
@@ -121,6 +127,13 @@ a{
 
 .italique{
     font-style: italic;
+}
+.souligne{
+    text-decoration: underline;
+}
+
+.texteCentre{
+    text-align: center;
 }
 
 h3{
@@ -165,10 +178,7 @@ h4{
     top: 90vh;
 }
 
-/* texte */
-.texteCentre{
-    text-align: center;
-}
+
 
 /* icones */
 .icone{
@@ -344,7 +354,7 @@ button{
     background-color: var(--secondary-color);
 }
 .ZoneAffichageEvenement{
-    background-color: var(--jaune);
+    background-color: var(--noir);
     border-radius: 1rem;
     width: 40vw;
     margin-left: auto;
@@ -352,6 +362,7 @@ button{
     margin-top: .2rem;
     margin-bottom: .2rem;
     padding: 0 1rem 0 1rem;
+    color: var(--blanc);
 }
 .ZoneAffichageActions{
     background-color: var(--jaune);
