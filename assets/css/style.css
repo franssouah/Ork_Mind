@@ -2,15 +2,12 @@
     /* définition des couleurs*/
 	--primary-color: #e6fde6;
     --secondary-color: #174d2f;
-    --tertiary-color: #49587b;
     --noir: #1B1B1B;
     --blanc: #fefefe;
     --gris: #6e6e6e;
     --jaune: #ffd966;
     --rouge: #761111;
-    --mauve: #9e78d7;
     --orange: #f4b183;
-    --rose: #fc9ef3;
     --bleu: #8faadc;
 
 
@@ -23,7 +20,8 @@
 
 
 
-/* général */
+/* général 
+*******************************************************************/
 
 body{
     background-color: var(--noir);
@@ -74,6 +72,22 @@ a{
     align-items: flex-start;
 }
 
+h3{
+    margin-top: 0;
+}
+h4{
+    margin: .5rem 0 0 0;
+}
+
+.fondNoirRounded{
+    background-color: #1B1B1B;
+    border-radius: 2rem;
+    padding: 4rem 1rem 1rem 1rem;
+    margin: 2rem;
+}
+
+
+/* Marges */
 .marge1{
     margin: 1rem;
 }
@@ -96,6 +110,8 @@ a{
     padding: 2rem;
 }
 
+/* Polices
+****************************************************************/
 .policeOrk{
     font-family: var(--police-ork);
     color: var(--blanc);
@@ -114,6 +130,9 @@ a{
     font-size: 2rem;
     color: #1B1B1B;
     margin: -.5rem .5rem -.5rem 0;
+}
+.policeNoire{
+    color: #1B1B1B;
 }
 .policeTaille2{
     font-size: 2rem;
@@ -136,22 +155,11 @@ a{
     text-align: center;
 }
 
-h3{
-    margin-top: 0;
-}
-h4{
-    margin: .5rem 0 0 0;
-}
-
-.fondNoirRounded{
-    background-color: #1B1B1B;
-    border-radius: 2rem;
-    padding: 4rem 1rem 1rem 1rem;
-    margin: 2rem;
-}
 
 
-/* Zones */
+
+/* Zones 
+***********************************************************/
 .AffichageTour{
     background-color: var(--gris);
     width: 70vw;
@@ -171,8 +179,6 @@ h4{
 }
 
 
-
-
 .BasdePage{
     position: absolute;
     top: 90vh;
@@ -180,7 +186,8 @@ h4{
 
 
 
-/* icones */
+/* icones 
+***********************************************************/
 .icone{
     width: 2.5rem;
     height: 2.5rem;
@@ -191,34 +198,8 @@ h4{
 
 
 
-/* Bouton menu */
-.BoutonMenu{
-    width: 2rem;
-    height: 2rem;
-    justify-self: end;
-    margin-left: 1rem;
-}
-
-.BoutonMenuImage{
-    object-fit: contain;
-    max-height: 3.5rem;
-    max-width: 3.5rem;
-}
-
-.BoutonMenuImage:hover{
-    animation-name: rotationBouton;
-	animation-duration: 2s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-}
-
-@keyframes rotationBouton {
-	0% {transform: rotateZ(0deg);}
-	50% {transform: rotateZ(180deg);}
-	100% {transform: rotateZ(360deg);}
-}
-
-/* Boutons */
+/* Boutons 
+************************************************************/
 button{
     border: 0;
     border-radius: 1.2rem;
@@ -272,11 +253,40 @@ button{
     font-size: 1rem;
 }
 
-.BoutonFermerFinTour{
-    width: 25vw;
+/* Bouton menu */
+.BoutonMenu{
+    width: 2rem;
+    height: 2rem;
+    justify-self: end;
+    margin-left: 1rem;
 }
 
-/* Cartes unités */
+.BoutonMenuImage{
+    object-fit: contain;
+    max-height: 3.5rem;
+    max-width: 3.5rem;
+}
+
+.BoutonMenuImage:hover{
+    animation-name: rotationBouton;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes rotationBouton {
+	0% {transform: rotateZ(0deg);}
+	50% {transform: rotateZ(180deg);}
+	100% {transform: rotateZ(360deg);}
+}
+
+
+
+
+
+
+/* Cartes unités 
+**********************************************************/
 .carte{
     margin: .2rem;
 }
@@ -295,16 +305,16 @@ button{
     text-align: center;
     color: #1B1B1B;
 }
-.carteTitre{
+.carteTitre, .carteTitreS{
     color: var(--blanc);
     margin: 0;
     text-transform: uppercase;
 }
 .carteTitreS{
-    color: var(--blanc);
-    margin: 0;
     font-size: .7rem;
-    text-transform: uppercase;
+}
+.carteTitreConfigS{
+    font-size: .7rem;
 }
 .activee{
     opacity: 20%;
@@ -315,11 +325,13 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 35vw;
+    height: 32vw;
 }
 
 
-/* Popups */
+/* Popups 
+**************************************************************/
+/* popups - général */
 .popup{
     visibility: hidden; 
     position: absolute;
@@ -334,10 +346,12 @@ button{
     visibility: visible;
 }
 
+/* Popup Renforts */
 .PopupRenforts{
     background-color: var(--secondary-color);
 }
 
+/* Popup Unité */
 .PopupUnite{
     background-color: var(--rouge);
 }
@@ -350,8 +364,13 @@ button{
 
 }
 
+/* Popup activation */
 .PopupActivation{
     background-color: var(--secondary-color);
+}
+.BoutonFermerActivation{
+    position: fixed;
+    bottom:1rem;
 }
 .ZoneAffichageEvenement{
     background-color: var(--noir);
@@ -376,6 +395,7 @@ button{
     color: #1B1B1B;
 }
 
+/* popup fin de tour */
 .PopupFinTour{
     background-color: var(--rouge);
 }
@@ -384,6 +404,11 @@ button{
     padding: 1rem;
     text-align: center;
 }
+
+.BoutonFermerFinTour{
+    width: 25vw;
+}
+
 
 
 /* Page config 

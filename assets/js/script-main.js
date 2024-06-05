@@ -132,7 +132,7 @@ $(document).ready(function() {  /* chargement du DOM */
                     $taillePolice="carteTitre"
                 }    
                 // injection de la carte
-                $affichageUnites.append('<div class="unite '+$role+'"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/ork_'+$nom+'_R.png">   <p class="'+$taillePolice+'">'+$nom+'</p>   </div></div>');
+                $affichageUnites.append('<div class="unite '+$role+'"><div class="carte colonne">  <img class="carteImage" src="assets/images/units/'+$nom+'.png">   <p class="'+$taillePolice+'">'+$nom+'</p>   </div></div>');
                 $affichageUnites.children().last().addClass("ork");
                 $affichageUnites.children().last().attr('id','ork'+$numeroOrk);
                 $affichageUnites.children().last().append('<p class="carteNumero policeOrk">'+$numeroOrk+'</p>');

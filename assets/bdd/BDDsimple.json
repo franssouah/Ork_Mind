@@ -1,15 +1,19 @@
 {
     "orks" : [
-        {"nom" : "BossMob","nbmax":1,"type" : "leger","role": "assaut officier"},
-        {"nom" : "Sluggas","nbmax":4,"type" : "leger","role": "assaut"},
-        {"nom" : "Shootas","nbmax":4,"type" : "leger","role": "tir"},
-        {"nom" : "BigShoota","nbmax":1,"type" : "leger","role": "tir"},
-        {"nom" : "RokkitLauncha","nbmax":1,"type" : "leger","role": "tirlourd","police":"S"},  
-        {"nom" : "KillaKan","nbmax":2,"type" : "moyen","role" : "tirlourd"},
-        {"nom" : "DeffDread","nbmax":1,"type" : "loud","role" : "tirlourd assaut"},
-        {"nom" : "StormBossMob","nbmax":1,"type" : "leger","role": "assaut officier vol"},
-        {"nom" : "StormBoyz","nbmax":7,"type" : "leger","role": "assaut vol"},
-        {"nom" : "TankBustas","nbmax":2,"type" : "leger","role": "tirlourd"}  
+        {"nom" : "bossmob","nbmax":1,"type" : "leger","role": "assaut officier"},
+        {"nom" : "sluggas","nbmax":7,"type" : "leger","role": "assaut"},
+        {"nom" : "shootas","nbmax":4,"type" : "leger","role": "tir"},
+        {"nom" : "bigshoota","nbmax":1,"type" : "leger","role": "tir"},
+        {"nom" : "rokkitlauncha","nbmax":1,"type" : "leger","role": "tirlourd","police":"S"},  
+        {"nom" : "stormbossmob","nbmax":1,"type" : "leger","role": "assaut officier vol"},
+        {"nom" : "stormboyz","nbmax":7,"type" : "leger","role": "assaut vol"},
+        {"nom" : "tankbossmob","nbmax":1,"type" : "leger","role": "tirlourd assaut officier"},
+        {"nom" : "tankbustas","nbmax":2,"type" : "leger","role": "tirlourd"},
+        {"nom" : "killakan","nbmax":1,"type" : "moyen","role" : "tirlourd"},
+        {"nom" : "killakan2","nbmax":1,"type" : "moyen","role" : "assaut"},
+        {"nom" : "deffdread","nbmax":1,"type" : "lourd","role" : "tirlourd assaut"},
+        {"nom" : "warbuggy","nbmax":2,"type" : "moyen","role" : "tir"},
+        {"nom" : "battlewagon","nbmax":1,"type" : "lourd","role" : "tir"}
     ],
     "evenements" : [
         {"titre":"En avant !","texte":"<strong>Mouvement +1</strong>"},
