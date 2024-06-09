@@ -33,31 +33,30 @@
         {"titre":"","texte":"aucun"},
         {"titre":"","texte":"aucun"}
     ],
+    "actionsCommunes":[
+        "Assaut / Mouvement → Ennemi",
+        "Mouvement → Allié"
+    ],
     "actionsAssaut":[
-        "Assaut / Tir",
+        "Assaut / Tir → Ennemi",
         "Assaut / Tir → Officier",
         "Assaut → Véhicule",
-        "Assaut / Mouvement",
         "Assaut / Tir → Blessé",
-        "Assaut / Mouvement → Blessé",
-        "Mouvement → Allié"
+        "Assaut / Mouvement → Blessé"
     ],
     "actionsTir":[
-        "Tir",
+        "Tir → Ennemi",
         "Tir → Officier",
         "Tir → Véhicule léger",
-        "Assaut / Mouvement",
         "Tir → Blessé",
-        "Repli → zone de départ", 
-        "Mouvement → Allié"
+        "Mouvement → départ"
     ],
     "actionsTirLourd":[
-        "Tir",
+        "Tir → Ennemi",
         "Tir → Officier",
         "Tir → Véhicule",
-        "Assaut / Mouvement",
         "Tir → Blessé",
-        "Repli → zone de départ"
+        "Mouvement → départ"
     ],
     "actionsObjectifTenir":[
         "Objectif",
