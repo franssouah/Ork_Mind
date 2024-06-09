@@ -1,79 +1,115 @@
 {
     "orks" : [
-        {"nom" : "bossmob","nbmax":1,"type" : "leger","role": "assaut officier"},
-        {"nom" : "sluggas","nbmax":7,"type" : "leger","role": "assaut"},
-        {"nom" : "shootas","nbmax":4,"type" : "leger","role": "tir"},
-        {"nom" : "bigshoota","nbmax":1,"type" : "leger","role": "tir"},
-        {"nom" : "rokkitlauncha","nbmax":1,"type" : "leger","role": "tirlourd","police":"S"},  
-        {"nom" : "stormbossmob","nbmax":1,"type" : "leger","role": "assaut officier vol"},
-        {"nom" : "stormboyz","nbmax":7,"type" : "leger","role": "assaut vol"},
-        {"nom" : "tankbossmob","nbmax":1,"type" : "leger","role": "tirlourd assaut officier"},
-        {"nom" : "tankbustas","nbmax":2,"type" : "leger","role": "tirlourd"},
-        {"nom" : "killakan","nbmax":1,"type" : "moyen","role" : "tirlourd"},
-        {"nom" : "killakan2","nbmax":1,"type" : "moyen","role" : "assaut"},
-        {"nom" : "deffdread","nbmax":1,"type" : "lourd","role" : "tirlourd assaut"},
-        {"nom" : "warbuggy","nbmax":2,"type" : "moyen","role" : "tir"},
-        {"nom" : "battlewagon","nbmax":1,"type" : "lourd","role" : "tir"}
-    ],
-    "recrutements":[
-        {"nom": "sluggas_squad", "nbmax":1, "sluggas": 4},
-        {"nom": "shootas_squad", "nbmax":1, "shootas": 3},
-        {"nom": "stormboyz_squad", "nbmax":1, "stormboyz": 4},
-        {"nom": "tankbustas_squad", "nbmax":1, "tankbossmob": 1, "tankbustas":2}
-    ],
-    "evenements" : [
-        {"titre":"En avant !","texte":"<strong>Mouvement +1</strong>"},
-        {"titre":"GO, GO, GO !","texte":"<strong>Mouvement +2</strong>"},
-        {"titre":"CONCENTRATION","texte":"<strong>Attaque +1</strong> (Tir et/ou Assaut)"},
-        {"titre":"WAAAAAAGh !!","texte":"L'unité <strong>joue 2 actions</strong> de la liste."},
-        {"titre":"Seconde chance","texte":"<strong>Relancez le dé</strong> si le résultat est insuffisant."},
-        {"titre":"Action d'éclat","texte":"L'unité gagne <strong>Tir en Mouvement</strong> (sans malus)."},
-        {"titre":"","texte":"aucun"},
-        {"titre":"","texte":"aucun"},
-        {"titre":"","texte":"aucun"},
-        {"titre":"","texte":"aucun"}
-    ],
-    "actionsCommunes":[
-        "Assaut / Mouvement → Ennemi",
-        "Mouvement → Allié"
-    ],
-    "actionsAssaut":[
-        "Assaut / Tir → Ennemi",
-        "Assaut / Tir → Officier",
-        "Assaut → Véhicule",
-        "Assaut / Tir → Blessé",
-        "Assaut / Mouvement → Blessé"
-    ],
-    "actionsTir":[
-        "Tir → Ennemi",
-        "Tir → Officier",
-        "Tir → Véhicule léger",
-        "Tir → Blessé",
-        "Mouvement → départ"
-    ],
-    "actionsTirLourd":[
-        "Tir → Ennemi",
-        "Tir → Officier",
-        "Tir → Véhicule",
-        "Tir → Blessé",
-        "Mouvement → départ"
-    ],
-    "actionsObjectifTenir":[
-        "Objectif",
-        "Ennemi ↓ Objectif",
-        "Assaut / Tir → Objectif",
-        "Mouvement → Objectif"
-    ],
-    "actionsObjectifProtecChef":[
-        "Mouvement → Objectif",
-        "Ennemi ↓ Objectif"
-    ],
-    "finTour":[
-        "Mouvement → Ennemi",
-        "Mouvement → Blessé",
-        "Mouvement → couvert",
-        "Repli → zone de départ", 
-        "Mouvement → Allié",
-        "Sieste (rien, quoi!)"
+        { 
+            "nom" : "Shootas",
+            "type" : "leger",
+            "verso" : "oui",
+            "caracR" :{
+                "mvt": 3,
+                "defense": 4,
+                "VSleger": 1,
+                "VSmoyen": 1,
+                "VSlourd": "X",
+                "assaut": 2,
+                "suppr":"non",
+                "tirMvt":"non",
+                "tirLimit": "non",
+                "perforant":"non",
+                "etoile":"non"
+            },
+            "caracV" :{
+                "mvt": 3,
+                "defense": 4,
+                "VSleger": 1,
+                "VSmoyen": 0,
+                "VSlourd": "X",
+                "assaut": 1,
+                "suppr":"non",
+                "tirMvt":"non",
+                "tirLimit": "non",
+                "perforant":"non",
+                "etoile":"non"
+            }
+        },
+        { 
+            "nom" : "Sluggas",
+            "type" : "leger",
+            "verso" : "oui",
+            "caracR" :{
+                "mvt": 3,
+                "defense": 4,
+                "VSleger": 1,
+                "VSmoyen": 1,
+                "VSlourd": "X",
+                "assaut": 3,
+                "suppr":"oui",
+                "tirMvt":"non",
+                "tirLimit": 4,
+                "perforant":"non",
+                "etoile":"non"
+            },
+            "caracV" :{
+                "mvt": 3,
+                "defense": 4,
+                "VSleger": 1,
+                "VSmoyen": 0,
+                "VSlourd": "X",
+                "assaut": 2,
+                "suppr":"",
+                "tirMvt":"non",
+                "tirLimit": 4,
+                "perforant":"non",
+                "etoile":"non"
+            }
+        },
+        { 
+            "nom" : "BossMob",
+            "type" : "leger",
+            "verso" : "oui",
+            "caracR" :{
+                "mvt": 4,
+                "defense": 6,
+                "VSleger": 2,
+                "VSmoyen": 1,
+                "VSlourd": 0,
+                "assaut": 2,
+                "suppr":"non",
+                "tirMvt":"non",
+                "tirLimit": "non",
+                "perforant":"oui",
+                "etoile":"oui"
+            },
+            "caracV" :{
+                "mvt": 4,
+                "defense": 6,
+                "VSleger": 2,
+                "VSmoyen": 1,
+                "VSlourd": 0,
+                "assaut": 2,
+                "suppr":"non",
+                "tirMvt":"non",
+                "tirLimit": "non",
+                "perforant":"oui",
+                "etoile":"oui"
+            }
+        },
+        { 
+            "nom" : "KillaKan",
+            "type" : "moyen",
+            "verso" : "non",
+            "caracR" :{
+                "mvt": 3,
+                "defense": 8,
+                "VSleger": 4,
+                "VSmoyen": 4,
+                "VSlourd": 4,
+                "assaut": "oui",
+                "suppr":"oui",
+                "tirMvt":"oui",
+                "tirLimit": "non",
+                "perforant":"oui",
+                "etoile":"non"
+            }
+        }
     ]
-}
+  }

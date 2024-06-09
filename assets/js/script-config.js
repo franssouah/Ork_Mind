@@ -5,7 +5,7 @@ $(document).ready(function() {  /* chargement du DOM */
 
     // Appel BDD
     function fonctionAccesBDD(){
-        fetch('../assets/bdd/BDD.json')
+        fetch('../assets/bdd/BDDsimple.json')
             .then(response => response.json())
             .then(data => {
                 $BDD = data;
@@ -54,8 +54,6 @@ $(document).ready(function() {  /* chargement du DOM */
                 $config.options.NbTours = $('#NbToursSelect').val();
                 //Nb d'Activations :
                 $config.options.NbActivations = $('#NbActivationsSelect').val();
-                //Objectif mission :
-                $config.options.ObjectifMission = $('#ObjectifMission').val();
 
             // enregistrement des unités
                 for($i=0; $i<$NbOrks; $i++){
