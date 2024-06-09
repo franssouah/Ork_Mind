@@ -1,0 +1,115 @@
+{
+    "orks" : [
+        { 
+            "nom" : "Shootas",
+            "type" : "leger",
+            "verso" : "oui",
+            "caracR" :{
+                "mvt": 3,
+                "defense": 4,
+                "VSleger": 1,
+                "VSmoyen": 1,
+                "VSlourd": "X",
+                "assaut": 2,
+                "suppr":"non",
+                "tirMvt":"non",
+                "tirLimit": "non",
+                "perforant":"non",
+                "etoile":"non"
+            },
+            "caracV" :{
+                "mvt": 3,
+                "defense": 4,
+                "VSleger": 1,
+                "VSmoyen": 0,
+                "VSlourd": "X",
+                "assaut": 1,
+                "suppr":"non",
+                "tirMvt":"non",
+                "tirLimit": "non",
+                "perforant":"non",
+                "etoile":"non"
+            }
+        },
+        { 
+            "nom" : "Sluggas",
+            "type" : "leger",
+            "verso" : "oui",
+            "caracR" :{
+                "mvt": 3,
+                "defense": 4,
+                "VSleger": 1,
+                "VSmoyen": 1,
+                "VSlourd": "X",
+                "assaut": 3,
+                "suppr":"oui",
+                "tirMvt":"non",
+                "tirLimit": 4,
+                "perforant":"non",
+                "etoile":"non"
+            },
+            "caracV" :{
+                "mvt": 3,
+                "defense": 4,
+                "VSleger": 1,
+                "VSmoyen": 0,
+                "VSlourd": "X",
+                "assaut": 2,
+                "suppr":"",
+                "tirMvt":"non",
+                "tirLimit": 4,
+                "perforant":"non",
+                "etoile":"non"
+            }
+        },
+        { 
+            "nom" : "BossMob",
+            "type" : "leger",
+            "verso" : "oui",
+            "caracR" :{
+                "mvt": 4,
+                "defense": 6,
+                "VSleger": 2,
+                "VSmoyen": 1,
+                "VSlourd": 0,
+                "assaut": 2,
+                "suppr":"non",
+                "tirMvt":"non",
+                "tirLimit": "non",
+                "perforant":"oui",
+                "etoile":"oui"
+            },
+            "caracV" :{
+                "mvt": 4,
+                "defense": 6,
+                "VSleger": 2,
+                "VSmoyen": 1,
+                "VSlourd": 0,
+                "assaut": 2,
+                "suppr":"non",
+                "tirMvt":"non",
+                "tirLimit": "non",
+                "perforant":"oui",
+                "etoile":"oui"
+            }
+        },
+        { 
+            "nom" : "KillaKan",
+            "type" : "moyen",
+            "verso" : "non",
+            "caracR" :{
+                "mvt": 3,
+                "defense": 8,
+                "VSleger": 4,
+                "VSmoyen": 4,
+                "VSlourd": 4,
+                "assaut": "oui",
+                "suppr":"oui",
+                "tirMvt":"oui",
+                "tirLimit": "non",
+                "perforant":"oui",
+                "etoile":"non"
+            }
+        }
+    ]
+  }

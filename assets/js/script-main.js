@@ -4,7 +4,7 @@ $(document).ready(function() {  /* chargement du DOM */
     /* Appel BDD
     ************************************************************/
     function fonctionAccesBDD(){
-        fetch('assets/bdd/BDDsimple.json')
+        fetch('assets/bdd/BDD.json')
             .then(response => response.json())
             .then(data => {
                 $BDD = data;
@@ -24,7 +24,7 @@ $(document).ready(function() {  /* chargement du DOM */
 
         // réglage Options
         $NbTours=$sessionConfig.options.NbTours;
-        console.log($sessionConfig);
+        $ObjectifMission=$sessionConfig.options.ObjectifMission;
  
         // initiative
         $initiative="mar";
@@ -39,10 +39,11 @@ $(document).ready(function() {  /* chargement du DOM */
         console.log($BDDevenements);
         
         $BDDactionsAssaut=$BDD.actionsAssaut;
-
-        $BDDactionsTir=$BDD.actionsTir;
-        
+        $BDDactionsTir=$BDD.actionsTir;   
         $BDDactionsTirLourd=$BDD.actionsTirLourd;
+
+        $BDDactionsObjectifTenir=$BDD.actionsObjectifTenir;
+        $BDDactionsObjectifProtecChef=$BDD.actionsObjectifProtecChef;
 
         $BDDfin=$BDD.finTour;
 
@@ -254,12 +255,36 @@ $(document).ready(function() {  /* chargement du DOM */
                     if ($UniteActive.hasClass('tirlourd')){
                         $actionsDispo=$BDDactionsTirLourd;
                     }
+
+                    // ajout des actions spécifiques à l'objectif
+                    if ($ObjectifMission == "Tenir objectif"){
+                        for ($i=0; $i<$BDDactionsObjectifTenir.length; $i++){
+                            $actionsDispo.push($BDDactionsObjectifTenir[$i]);
+                        }
+                        
+                    }
+                    if ($ObjectifMission == "Protéger Boss"){
+                        for ($i=0; $i<$BDDactionsObjectifProtecChef.length; $i++){
+                            $actionsDispo.push($BDDactionsObjectifProtecChef[$i]);
+                        }
+                    }
                     
                     //tirage au sort
                     //$actionsDispo=$BDDactions;
                     for ($i=0; $i<10; $i++){
                         //tirage d'une action
                         $action=$actionsDispo[Math.floor(Math.random()*($actionsDispo.length))];
+                        // remplacement des caractères "_" par des espaces et "1" par "'" pour l'affichage
+                        $action = $action.replace("Assaut", "<img class='iconesmall' src='assets/images/icones/icone-assaut.png'>")
+                            .replace("Tir", "<img class='iconesmall' src='assets/images/icones/icone-tir.png'>")
+                            .replace("Ennemi", "<img class='iconesmall' src='assets/images/icones/icone-ennemi.png'>")
+                            .replace("Officier", "<img class='iconesmall' src='assets/images/icones/icone-officier.png'>")
+                            .replace("Véhicule léger", "<img class='iconesmall' src='assets/images/iconeS/icone-vehicLeger.png'>")
+                            .replace("Véhicule", "<img class='iconesmall' src='assets/images/iconeS/icone-vehic.png'>")
+                            .replace("Blessé", "<img class='iconesmall' src='assets/images/icones/icone-blesse.png'>")
+                            .replace("Mouvement", "<img class='iconesmall' src='assets/images/icones/icone-mvt.png'>")
+                            .replace("Allié", "<img class='iconesmall' src='assets/images/icones/icone-ork.png'>")
+                            .replace("Objectif", "<img class='iconesmall' src='assets/images/icones/icone-objectif.png'>");
                         // ajout dans le html
                         $(".ActionAffiche"+$i).html($action);
                         //suppression de cette action pour éviter double tirage
