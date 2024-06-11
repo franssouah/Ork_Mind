@@ -346,7 +346,7 @@ $(document).ready(function() {  /* chargement du DOM */
                             .replace("Tir", "<img class='iconesmall' src='assets/images/icones/icone-tir.png'>")
                             .replace("Ennemi", "<img class='iconesmall' src='assets/images/icones/icone-ennemi.png'>")
                             .replace("Officier", "<img class='iconesmall' src='assets/images/icones/icone-officier.png'>")
-                            .replace("Véhicule léger", "<img class='iconesmall' src='assets/images/icones/icone-vehicleger.png'>")
+                            .replace("Véhicule léger", "<img class='iconesmall' src='assets/images/icones/icone-vehicl.png'>")
                             .replace("Véhicule", "<img class='iconesmall' src='assets/images/icones/icone-vehic.png'>")
                             .replace("Blessé", "<img class='iconesmall' src='assets/images/icones/icone-blesse.png'>")
                             .replace("Mouvement", "<img class='iconesmall' src='assets/images/icones/icone-mvt.png'>")
