@@ -245,7 +245,7 @@ $(document).ready(function() {  /* chargement du DOM */
             // probabilité de perte d'une activation
             if ($randomSvg == 1){
                 $(".ZoneMessagePopupUnite").append('<p class="policeOrk padding2">Les Orks perdent une activation pour ce tour. </p>');
-                $numeroActivation++
+                $numeroActivation++;
                 setTimeout(() =>{
                     $("#"+$IDclic).remove();
                     $ZoneAffichageUnite.html('');
