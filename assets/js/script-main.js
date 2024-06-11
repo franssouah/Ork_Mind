@@ -44,6 +44,7 @@ $(document).ready(function() {  /* chargement du DOM */
 
         $BDDactionsObjectifTenir=$BDD.actionsObjectifTenir;
         $BDDactionsObjectifProtecChef=$BDD.actionsObjectifProtecChef;
+        $BDDactionsObjectifTuerChef=$BDD.actionsObjectifTuerChef;
 
         $BDDfin=$BDD.finTour;
 
@@ -66,7 +67,7 @@ $(document).ready(function() {  /* chargement du DOM */
         
 
         // ajout des actions spécifiques à l'objectif
-        if ($ObjectifMission == "Tenir objectif"){
+        if ($ObjectifMission == "Tenir objectif" || $ObjectifMission == "Capturer objectif"){
             //assaut
             $NbActionsAssaut=$BDDactionsAssaut.length;
             for ($i=0; $i<$BDDactionsObjectifTenir.length; $i++){
@@ -99,6 +100,23 @@ $(document).ready(function() {  /* chargement du DOM */
             $NbActionsTirLourd=$BDDactionsTirLourd.length;
             for ($i=0; $i<$BDDactionsObjectifProtecChef.length; $i++){
                 $BDDactionsTirLourd[$NbActionsTirLourd+$i]=$BDDactionsObjectifProtecChef[$i];
+            }
+        }
+        if ($ObjectifMission == "Tuer Chef"){
+            //assaut
+            $NbActionsAssaut=$BDDactionsAssaut.length;
+            for ($i=0; $i<$BDDactionsObjectifTuerChef.length; $i++){
+                $BDDactionsAssaut[$NbActionsAssaut+$i]=$BDDactionsObjectifTuerChef[$i];
+            }
+            // Tir
+            $NbActionsTir=$BDDactionsTir.length;
+            for ($i=0; $i<$BDDactionsObjectifTuerChef.length; $i++){
+                $BDDactionsTir[$NbActionsTir+$i]=$BDDactionsObjectifTuerChef[$i];
+            }
+            // Tir Lourd
+            $NbActionsTirLourd=$BDDactionsTirLourd.length;
+            for ($i=0; $i<$BDDactionsObjectifTuerChef.length; $i++){
+                $BDDactionsTirLourd[$NbActionsTirLourd+$i]=$BDDactionsObjectifTuerChef[$i];
             }
         }
 
@@ -296,6 +314,7 @@ $(document).ready(function() {  /* chargement du DOM */
             //Ouverture du popup
                 // affichage de l'unité
                 $(".ZoneAffichageActivation").html($ContenuCarteUniteActive);
+                $(".ZoneAffichageActivation").children().last().addClass('numeroCarteActive');
 
                 // affichage de l'évènement
                 $randomEvt=[Math.floor(Math.random()*($BDDevenements.length))]
@@ -303,13 +322,7 @@ $(document).ready(function() {  /* chargement du DOM */
 
                 // affichage des actions
 
-                    // initialisation des actions dispo
-                    /*$actionsDispo=[""];
-                    console.log($actionsDispo);
-
-                    $actionsDispo=$BDDactionsCommunes;
-                    console.log($actionsDispo);*/
-                    // ajout actions type d'unité type d'unité
+                    // initialisation des actions dispo (selon type d'unité)
                     if ($UniteActive.hasClass('assaut')){
                         $actionsDispo=$BDDactionsAssaut;
                     }
@@ -320,18 +333,6 @@ $(document).ready(function() {  /* chargement du DOM */
                         $actionsDispo=$BDDactionsTirLourd;
                     }
 
-                    // ajout des actions spécifiques à l'objectif
-                    /*if ($ObjectifMission == "Tenir objectif"){
-                        for ($i=0; $i<$BDDactionsObjectifTenir.length; $i++){
-                            $actionsDispo.push($BDDactionsObjectifTenir[$i]);
-                        }
-                        
-                    }
-                    if ($ObjectifMission == "Protéger Boss"){
-                        for ($i=0; $i<$BDDactionsObjectifProtecChef.length; $i++){
-                            $actionsDispo.push($BDDactionsObjectifProtecChef[$i]);
-                        }
-                    }*/
                     console.log($actionsDispo);
                     
                     //tirage au sort
@@ -345,7 +346,7 @@ $(document).ready(function() {  /* chargement du DOM */
                             .replace("Tir", "<img class='iconesmall' src='assets/images/icones/icone-tir.png'>")
                             .replace("Ennemi", "<img class='iconesmall' src='assets/images/icones/icone-ennemi.png'>")
                             .replace("Officier", "<img class='iconesmall' src='assets/images/icones/icone-officier.png'>")
-                            .replace("Véhicule léger", "<img class='iconesmall' src='assets/images/iconeS/icone-vehicLeger.png'>")
+                            .replace("Véhicule léger", "<img class='iconesmall' src='assets/images/iconeS/icone-vehicleger.png'>")
                             .replace("Véhicule", "<img class='iconesmall' src='assets/images/iconeS/icone-vehic.png'>")
                             .replace("Blessé", "<img class='iconesmall' src='assets/images/icones/icone-blesse.png'>")
                             .replace("Mouvement", "<img class='iconesmall' src='assets/images/icones/icone-mvt.png'>")
@@ -373,8 +374,9 @@ $(document).ready(function() {  /* chargement du DOM */
             $numeroActivation++;
 
         }else{
-            // à remplacer par Popup !
-            alert("Plus d'activations pour ce tour !");
+            // affichage Popup plus d'activations
+            $(".PopupPlusActivation").addClass('visible');
+            //alert("Plus d'activations pour ce tour !");
         }
     }
 
@@ -385,6 +387,10 @@ $(document).ready(function() {  /* chargement du DOM */
     $(".BoutonFermerActivation").on("click", function(){
         $PopupActivation.removeClass('visible');
         $actionsDispo=[];
+    })
+
+    $(".BoutonFermerPlusActivation").on("click", function(){
+        $(".PopupPlusActivation").removeClass('visible');
     })
 
 

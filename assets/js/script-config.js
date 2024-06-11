@@ -34,7 +34,7 @@ $(document).ready(function() {  /* chargement du DOM */
                 $taillePolice="";
             } 
             // injection de la carte
-            $ZoneChoixUnites.append('<div class="colonne">  <div class="carte colonne">   <img class="carteImage" src="../assets/images/units/'+$nomUnite+'.png">    </div> <div class="selection">     <label for="Nb'+$nomUnite+'Select" class="'+$taillePolice+'">'+$nomUnite+' :</label>     <select id="Nb'+$nomUnite+'Select">     </select>     </div>     </div>');
+            $ZoneChoixUnites.append('<div class="colonne carteConfig">  <div class="carte colonne">   <img class="carteImage" src="../assets/images/units/'+$nomUnite+'.png">    </div> <div class="selection">     <label for="Nb'+$nomUnite+'Select" class="'+$taillePolice+'">'+$nomUnite+' :</label>     <select id="Nb'+$nomUnite+'Select">     </select>     </div>     </div>');
 
             for ($j=0; $j<$NbMax+1; $j++){
                 $("#Nb"+$nomUnite+"Select").append('<option>'+$j+'</option>');

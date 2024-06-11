@@ -64,6 +64,11 @@
         "Assaut / Tir → Objectif",
         "Mouvement → Objectif"
     ],
+    "actionsObjectifTuerChef":[
+        "Assaut / Mouvement → Objectif",
+        "Assaut / Tir → Objectif",
+        "Tir → Objectif"
+    ],
     "actionsObjectifProtecChef":[
         "Mouvement → Objectif",
         "Ennemi ↓ Objectif"

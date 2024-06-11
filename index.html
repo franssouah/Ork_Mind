@@ -31,7 +31,7 @@
 		</section>
 
 		<!-- boutons ork mind & fin tour -->
-		<section class="ligne centre margeT1">
+		<section class="ligne centre margeT05">
 			<button id="OrkMind" class="BoutonOrkMind BoutonVert policeOrk">Ork Mind !</button>
 			<button class="BoutonFinTour BoutonRouge police3">Fin du tour</button>
 		</section>
@@ -107,18 +107,18 @@
 				
 			</section>
 
+		<!-- Popup Plus d'Activations : 
+			affiché au clic sur bouton OrkMind s'il n'y a plus d'activation -->
+			<section class="PopupPlusActivation popup centre">
+				<div class="ligne spaceAround margeT5">
+					<h4 class="policeOrk centre marge5 policeTaille15 texteCentre">Il ne reste plus d'activations Orks pour ce tour !</h4>
+				</div>
 
-
-		<!-- Popup Renforts : 
-			affiché au clic sur bouton renforts; contient toutes unités de la BDD 
-		<section class="PopupRenforts popup">
-			<div>
-				<h3>Gestion des renforts Orks</h3>
-				<p>Cliquez sur une unité pour l'ajouter :</p>
-			</div>
-			<div class="ZoneAffichageRenforts"></div>
-			<button class="BoutonFermerRenforts BoutonRouge policeOrk">Fermer</button>
-		</section>-->
+				<div class="ligne centre policeOrk marge5">
+					<button class="BoutonFermerPlusActivation BoutonRouge policeOrk centre policeTaille15">OK</button>
+				</div>
+				
+			</section>
 
 		<!-- Popup unité : 
 			affiché au clic sur une unité en jeu -->
