@@ -41,6 +41,8 @@ $(document).ready(function() {  /* chargement du DOM */
         $BDDactionsAssaut=$BDD.actionsAssaut;
         $BDDactionsTir=$BDD.actionsTir;   
         $BDDactionsTirLourd=$BDD.actionsTirLourd;
+        $BDDactionsTransport=$BDD.actionsTransport;
+        $BDDactionsPsyker=$BDD.actionsPsyker;
 
         $BDDactionsObjectifTenir=$BDD.actionsObjectifTenir;
         $BDDactionsObjectifProtecChef=$BDD.actionsObjectifProtecChef;
@@ -64,60 +66,96 @@ $(document).ready(function() {  /* chargement du DOM */
             for ($i=0; $i<$BDDactionsCommunes.length; $i++){
                 $BDDactionsTirLourd[$NbActionsTirLourd+$i]=$BDDactionsCommunes[$i];
             }
+            // Transport
+            $NbActionsTransport=$BDDactionsTransport.length;
+            for ($i=0; $i<$BDDactionsCommunes.length; $i++){
+                $BDDactionsTransport[$NbActionsTransport+$i]=$BDDactionsCommunes[$i];
+            }
+            // Psyker
+            $NbActionsPsyker=$BDDactionsPsyker.length;
+            for ($i=0; $i<$BDDactionsCommunes.length; $i++){
+                $BDDactionsPsyker[$NbActionsPsyker+$i]=$BDDactionsCommunes[$i];
+            }
         
 
         // ajout des actions spécifiques à l'objectif
+        function fonctionActionsObjectif(actions, objectif){
+            $NbActions=actions.length;
+            for ($i=0; $i<objectif.length; $i++){
+                actions[$NbActions+$i]=objectif[$i];
+            }
+        }
         if ($ObjectifMission == "Tenir objectif" || $ObjectifMission == "Capturer objectif"){
             //assaut
-            $NbActionsAssaut=$BDDactionsAssaut.length;
+            fonctionActionsObjectif($BDDactionsAssaut,$BDDactionsObjectifTenir);
+            /*$NbActionsAssaut=$BDDactionsAssaut.length;
             for ($i=0; $i<$BDDactionsObjectifTenir.length; $i++){
                 $BDDactionsAssaut[$NbActionsAssaut+$i]=$BDDactionsObjectifTenir[$i];
-            }
+            }*/
             // Tir
-            $NbActionsTir=$BDDactionsTir.length;
+            fonctionActionsObjectif($BDDactionsTir,$BDDactionsObjectifTenir);
+            /*$NbActionsTir=$BDDactionsTir.length;
             for ($i=0; $i<$BDDactionsObjectifTenir.length; $i++){
                 $BDDactionsTir[$NbActionsTir+$i]=$BDDactionsObjectifTenir[$i];
-            }
+            }*/
             // Tir Lourd
-            $NbActionsTirLourd=$BDDactionsTirLourd.length;
+            fonctionActionsObjectif($BDDactionsTirLourd,$BDDactionsObjectifTenir);
+            /*$NbActionsTirLourd=$BDDactionsTirLourd.length;
             for ($i=0; $i<$BDDactionsObjectifTenir.length; $i++){
                 $BDDactionsTirLourd[$NbActionsTirLourd+$i]=$BDDactionsObjectifTenir[$i];
-            }
-            
+            }*/
+            // Transport
+            fonctionActionsObjectif($BDDactionsTransport,$BDDactionsObjectifTenir); 
+            // Psyker
+            fonctionActionsObjectif($BDDactionsPsyker,$BDDactionsObjectifTenir); 
         }
         if ($ObjectifMission == "Protéger Boss"){
             //assaut
-            $NbActionsAssaut=$BDDactionsAssaut.length;
+            fonctionActionsObjectif($BDDactionsAssaut,$BDDactionsObjectifProtecChef);
+            /*$NbActionsAssaut=$BDDactionsAssaut.length;
             for ($i=0; $i<$BDDactionsObjectifProtecChef.length; $i++){
                 $BDDactionsAssaut[$NbActionsAssaut+$i]=$BDDactionsObjectifProtecChef[$i];
-            }
+            }*/
             // Tir
-            $NbActionsTir=$BDDactionsTir.length;
+            fonctionActionsObjectif($BDDactionsTir,$BDDactionsObjectifProtecChef);
+            /*$NbActionsTir=$BDDactionsTir.length;
             for ($i=0; $i<$BDDactionsObjectifProtecChef.length; $i++){
                 $BDDactionsTir[$NbActionsTir+$i]=$BDDactionsObjectifProtecChef[$i];
-            }
+            }*/
             // Tir Lourd
-            $NbActionsTirLourd=$BDDactionsTirLourd.length;
+            fonctionActionsObjectif($BDDactionsTirLourd,$BDDactionsObjectifProtecChef);
+            /*$NbActionsTirLourd=$BDDactionsTirLourd.length;
             for ($i=0; $i<$BDDactionsObjectifProtecChef.length; $i++){
                 $BDDactionsTirLourd[$NbActionsTirLourd+$i]=$BDDactionsObjectifProtecChef[$i];
-            }
+            }*/
+            // Transport
+            fonctionActionsObjectif($BDDactionsTransport,$BDDactionsObjectifProtecChef); 
+            // Psyker
+            fonctionActionsObjectif($BDDactionsPsyker,$BDDactionsObjectifProtecChef);
         }
         if ($ObjectifMission == "Tuer Chef"){
             //assaut
-            $NbActionsAssaut=$BDDactionsAssaut.length;
+            fonctionActionsObjectif($BDDactionsAssaut,$BDDactionsObjectifTuerChef);
+            /*$NbActionsAssaut=$BDDactionsAssaut.length;
             for ($i=0; $i<$BDDactionsObjectifTuerChef.length; $i++){
                 $BDDactionsAssaut[$NbActionsAssaut+$i]=$BDDactionsObjectifTuerChef[$i];
-            }
+            }*/
             // Tir
-            $NbActionsTir=$BDDactionsTir.length;
+            fonctionActionsObjectif($BDDactionsTir,$BDDactionsObjectifTuerChef);
+            /*$NbActionsTir=$BDDactionsTir.length;
             for ($i=0; $i<$BDDactionsObjectifTuerChef.length; $i++){
                 $BDDactionsTir[$NbActionsTir+$i]=$BDDactionsObjectifTuerChef[$i];
-            }
+            }*/
             // Tir Lourd
-            $NbActionsTirLourd=$BDDactionsTirLourd.length;
+            fonctionActionsObjectif($BDDactionsTirLourd,$BDDactionsObjectifTuerChef);
+            /*$NbActionsTirLourd=$BDDactionsTirLourd.length;
             for ($i=0; $i<$BDDactionsObjectifTuerChef.length; $i++){
                 $BDDactionsTirLourd[$NbActionsTirLourd+$i]=$BDDactionsObjectifTuerChef[$i];
-            }
+            }*/
+            // Transport
+            fonctionActionsObjectif($BDDactionsTransport,$BDDactionsObjectifTuerChef); 
+            // Psyker
+            fonctionActionsObjectif($BDDactionsPsyker,$BDDactionsObjectifTuerChef);
         }
 
 
@@ -332,6 +370,12 @@ $(document).ready(function() {  /* chargement du DOM */
                     if ($UniteActive.hasClass('tirlourd')){
                         $actionsDispo=$BDDactionsTirLourd;
                     }
+                    if ($UniteActive.hasClass('transport')){
+                        $actionsDispo=$BDDactionsTransport;
+                    }
+                    if ($UniteActive.hasClass('psyker')){
+                        $actionsDispo=$BDDactionsPsyker;
+                    }
 
                     console.log($actionsDispo);
                     
@@ -351,7 +395,10 @@ $(document).ready(function() {  /* chargement du DOM */
                             .replace("Blessé", "<img class='iconesmall' src='assets/images/icones/icone-blesse.png'>")
                             .replace("Mouvement", "<img class='iconesmall' src='assets/images/icones/icone-mvt.png'>")
                             .replace("Allié", "<img class='iconesmall' src='assets/images/icones/icone-ork.png'>")
-                            .replace("Objectif", "<img class='iconesmall' src='assets/images/icones/icone-objectif.png'>");
+                            .replace("Objectif", "<img class='iconesmall' src='assets/images/icones/icone-objectif.png'>")
+                            .replace("Embarquer", "<img class='iconesmall' src='assets/images/icones/icone-embarquer.png'>")
+                            .replace("Killbolt", "<img class='iconesmall' src='assets/images/icones/icone-killbolt.png'>")
+                            .replace("Dakrunch", "<img class='iconesmall' src='assets/images/icones/icone-dakrunch.png'>");
 
                         // ajout dans le html
                         $(".ActionAffiche"+$i).html($actionIcones);

@@ -13,7 +13,10 @@
         {"nom" : "killakan2","nbmax":1,"type" : "moyen","role" : "assaut"},
         {"nom" : "deffdread","nbmax":1,"type" : "lourd","role" : "tirlourd assaut"},
         {"nom" : "warbuggy","nbmax":2,"type" : "moyen","role" : "tir"},
-        {"nom" : "battlewagon","nbmax":1,"type" : "lourd","role" : "tir"}
+        {"nom" : "battlewagon","nbmax":1,"type" : "lourd","role" : "tir"},
+        {"nom" : "trukk","nbmax":1,"type" : "moyen","role" : "transport"},
+        {"nom" : "gorkargk","nbmax":1,"type" : "leger","role" : "psyker"},
+        {"nom" : "uzdrakh","nbmax":1,"type" : "leger","role" : "assaut officier"}
     ],
     "recrutements":[
         {"nom": "sluggas_squad", "nbmax":1, "sluggas": 4},
@@ -57,6 +60,21 @@
         "Tir → Véhicule",
         "Tir → Blessé",
         "Mouvement → départ"
+    ],
+    "actionsTransport":[
+        "Embarquer → Mouvement → Ennemi",
+        "Embarquer → Mouvement / Tir → Ennemi",
+        "Embarquer → Mouvement → Objectif"
+    ],
+    "actionsPsyker":[
+        "Killbolt → Ennemi",
+        "Killbolt → Officier",
+        "Killbolt → Blessé",
+        "Killbolt → Véhicule",
+        "Dakrunch → Ennemi",
+        "Dakrunch → Officier",
+        "Dakrunch → Blessé",
+        "Dakrunch → Véhicule"
     ],
     "actionsObjectifTenir":[
         "Objectif",
